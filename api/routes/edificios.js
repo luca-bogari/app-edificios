@@ -13,6 +13,17 @@ edificiosRouter.get("/", (req, res, next) => {
     });
 });
 
+// busca un edificio por el ID
+edificiosRouter.get("/:id", (req, res, next) => {
+  Edificios.findOne({ where: { id: req.params.id } })
+    .then(edificio => {
+      res.status(200).json(edificio);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 // crear un nuevo edificio
 edificiosRouter.put("/", (req, res, next) => {
   Edificios.create(req.body)
