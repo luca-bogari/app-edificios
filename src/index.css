@@ -32,6 +32,10 @@ code {
   background-color: #6c757d;
 }
 
+.header {
+  margin-bottom: 25px;
+}
+
 .tabla {
   margin-top: 40px;
 }
@@ -69,5 +73,44 @@ table {
 }
 
 .formulario {
-  width: 400px !important;
+  width: 70% !important;
+  margin-top: 10%;
+}
+
+.sinDatos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  height: 400px;
+}
+
+@media only screen and (min-width: 576px) {
+  .formulario {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .formulario {
+    width: 40% !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .formulario {
+    width: 30% !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .formulario {
+    width: 20% !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .buscador {
+    margin-top: 12px !important;
+  }
 }

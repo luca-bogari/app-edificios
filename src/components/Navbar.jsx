@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 
 const Navbar = () => {
@@ -26,7 +25,7 @@ const Navbar = () => {
           <Link to="/addEdificio" className="navLink mx-2 p-2">
             Agregar edificio
           </Link>
-          <Link to="/" className="navLink mx-2 p-2">
+          <Link to="/addDependencia" className="navLink mx-2 p-2">
             Nueva dependencia
           </Link>
         </div>

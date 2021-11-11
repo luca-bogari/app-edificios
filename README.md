@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Como levantar la aplicacion
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto se realizó con React en el Frontend y con NodeJs + Express en el backend. Para la base de datos utilicé PostgreSQL.
+Di uso de la libreria Axios para hacer los pedidos desde el frontend a las rutas del backend.
 
-## Available Scripts
+## Comandos
 
-In the project directory, you can run:
+(Antes de correr cualquier comando ve a la seccion de PostgreSQL(base de datos))
 
-### `yarn start`
+En el directorio principal puedes correr:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `npm run seed`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Este comando es para correr un archivo seed que se encarga de llenar la base de datos con informacion de algunos de los edificos del poder judicial de Neuquen.
+Luego de correr este comando nuestra applicación estará lista para iniciarse y utilizarse.
 
-### `yarn test`
+### `npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Corre la app en el navegador y levanta el servidor.
+En caso de no abrir el navegador automaticamente, dentro de tu navegador ir a la siguiente dirección: [http://localhost:3000](http://localhost:3000)
 
-### `yarn build`
+## PostgreSQL (base de datos)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+(ATENCION) Si ya tienes PostgreSQL instalado y configurado en tu computadora puedes correr el siguiente comando: `createdb edificios_nqn`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Si no tienes PostgreSQL instalado deberas seguir los siguientes pasos:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Instalar PostgreSQL desde este link tendras varias opciones segun tu sistema operativo [https://www.postgresql.org/download/](https://www.postgresql.org/download/)
+- Configurar PostgreSQL:
+  Genera tu usuario como admin de postgres.
+  `sudo -u postgres createuser --superuser $USER`
 
-### `yarn eject`
+  Solo Linux:
+  Postgres va a requerir tu usuario y contraseña en cada conexion. Para evitar tener que hacerlo vamos a dar permisos a todas las conexiones locales.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  - Entra a donde estan los archivos de configuracion de postgres (si no sabes cual es tu version de postgres completa la busqueda en la terminal con la tecla Tab).
+    `cd /etc/postgresql/VERSION_DE_TU_POSTGRES/main/`
+  - Edita el archivo pg_hba.conf con el editor de terminal nano.
+    `sudo nano pg_hba.conf`
+  - En la parte de abajo, editá las líneas que hablen de IPv4 e IPv6 remplazando md5 por trust. Deberia quedarte así…
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```
+    # IPv4 local connections:
+    host all all 127.0.0.1/32 trust
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    # IPv6 local connections:
+    host all all ::1/128 trust
+    ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  - Guarda ( ctrl+O, va a pedirte un enter para confirmar el nombre) y sali ( ctrl+X).
+  - Luego de actualizar tu archivo .conf, reiniciá el proceso de Postgres. Hacelo con este comando desde la terminal:
+    `sudo service postgresql restart`

@@ -4,13 +4,13 @@ import {
   Route,
   Switch,
   Redirect,
-  Link,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Edificios from "../components/Edificios";
 import Dependencias from "../components/Dependencias";
 import Navbar from "../components/Navbar";
 import AddEdificio from "../components/AddEdificio";
+import AddDependencia from "../components/AddDependencia";
 
 export default function Main() {
   return (
@@ -25,6 +25,11 @@ export default function Main() {
             render={({ match }) => <Dependencias id={match.params.id} />}
           />
           <Route exact path="/addEdificio" render={() => <AddEdificio />} />
+          <Route
+            exact
+            path="/addDependencia"
+            render={() => <AddDependencia />}
+          />
           <Redirect from="/" to="/edificios" />
         </Switch>
       </div>
