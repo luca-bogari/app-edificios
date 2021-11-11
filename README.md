@@ -28,15 +28,22 @@ Si no tienes PostgreSQL instalado deberas seguir los siguientes pasos:
 - Instalar PostgreSQL desde este link tendras varias opciones segun tu sistema operativo [https://www.postgresql.org/download/](https://www.postgresql.org/download/)
 - Configurar PostgreSQL:
   Genera tu usuario como admin de postgres.
-  `sudo -u postgres createuser --superuser $USER`
+
+  ```
+  sudo -u postgres createuser --superuser $USER
+  ```
 
   Solo Linux:
   Postgres va a requerir tu usuario y contraseña en cada conexion. Para evitar tener que hacerlo vamos a dar permisos a todas las conexiones locales.
 
   - Entra a donde estan los archivos de configuracion de postgres (si no sabes cual es tu version de postgres completa la busqueda en la terminal con la tecla Tab).
-    `cd /etc/postgresql/VERSION_DE_TU_POSTGRES/main/`
+    ```
+    cd /etc/postgresql/VERSION_DE_TU_POSTGRES/main/
+    ```
   - Edita el archivo pg_hba.conf con el editor de terminal nano.
-    `sudo nano pg_hba.conf`
+    ```
+    sudo nano pg_hba.conf
+    ```
   - En la parte de abajo, editá las líneas que hablen de IPv4 e IPv6 remplazando md5 por trust. Deberia quedarte así…
 
     ```
@@ -49,4 +56,6 @@ Si no tienes PostgreSQL instalado deberas seguir los siguientes pasos:
 
   - Guarda ( ctrl+O, va a pedirte un enter para confirmar el nombre) y sali ( ctrl+X).
   - Luego de actualizar tu archivo .conf, reiniciá el proceso de Postgres. Hacelo con este comando desde la terminal:
-    `sudo service postgresql restart`
+    ```
+    sudo service postgresql restart
+    ```
