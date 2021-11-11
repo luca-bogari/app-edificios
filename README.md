@@ -9,7 +9,7 @@ Di uso de la libreria Axios para hacer los pedidos desde el frontend a las rutas
 
 En el directorio principal puedes correr:
 
-### `npm run seed`
+### `npm install`
 
 Antes de nada debes correr este comando para instalar todas las dependencias del proyecto.
 
