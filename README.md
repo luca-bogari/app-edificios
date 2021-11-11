@@ -11,6 +11,10 @@ En el directorio principal puedes correr:
 
 ### `npm run seed`
 
+Antes de nada debes correr este comando para instalar todas las dependencias del proyecto.
+
+### `npm run seed`
+
 Este comando es para correr un archivo seed que se encarga de llenar la base de datos con informacion de algunos de los edificos del poder judicial de Neuquen.
 Luego de correr este comando nuestra applicación estará lista para iniciarse y utilizarse.
 
