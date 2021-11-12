@@ -75,6 +75,13 @@ const Edificios = () => {
           ))}
         </tbody>
       </table>
+      {edificiosFiltrados[0] ? (
+        <></>
+      ) : (
+        <div className="container sinDatos">
+          <span>Sin datos para mostrar</span>
+        </div>
+      )}
     </div>
   );
 };
