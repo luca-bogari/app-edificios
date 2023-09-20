@@ -1,4 +1,4 @@
-# Como levantar la aplicacion
+# Como iniciar la aplicacion
 
 Este proyecto se realizó con React en el Frontend y con NodeJs + Express en el backend. Para la base de datos utilicé PostgreSQL.
 Di uso de la libreria Axios para hacer los pedidos desde el frontend a las rutas del backend.
